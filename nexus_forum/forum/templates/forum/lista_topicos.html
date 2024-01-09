@@ -1,0 +1,14 @@
+<!-- forum/templates/forum/lista_topicos.html -->
+
+{% extends 'forum/base.html' %}
+
+{% block title %}Lista de Tópicos{% endblock %}
+
+{% block content %}
+    <h2>Topicos</h2>
+    <ul>
+        {% for topico in topicos %}
+            <li><a href="{% url 'detalhes_topico' topico.id %}">{{ topico.titulo }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

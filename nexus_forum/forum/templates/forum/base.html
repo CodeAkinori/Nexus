@@ -1,0 +1,29 @@
+<!-- forum/templates/forum/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Seu Título Padrão{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Seu Fórum</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'lista_topicos' %}">Tópicos</a></li>
+                <!-- Adicione mais links de navegação conforme necessário -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Seu Fórum</p>
+    </footer>
+</body>
+</html>

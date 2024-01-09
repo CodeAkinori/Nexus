@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Novo Post em {{ topico.titulo }}</h2>
+  <form method="post" action="{% url 'criar_post' topico.id %}">
+    {% csrf_token %}
+    <textarea name="conteudo" rows="4" cols="50"></textarea><br>
+    <input type="submit" value="Enviar">
+  </form>
+{% endblock %}

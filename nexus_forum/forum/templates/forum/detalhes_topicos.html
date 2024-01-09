@@ -1,0 +1,22 @@
+<!-- forum/templates/forum/detalhes_tópico.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ topico.titulo }}</h2>
+  <p>Criado em: {{ topico.criado_em }}</p>
+  
+  <h3>Posts</h3>
+  <ul>
+    {% for post in posts %}
+      <li>{{ post.autor.username }} - {{ post.criado_em }}<br>{{ post.conteudo }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Novo Post</h3>
+  <form method="post" action="{% url 'criar_post' topico.id %}">
+    {% csrf_token %}
+    <textarea name="conteudo" rows="4" cols="50"></textarea><br>
+    <input type="submit" value="Enviar">
+  </form>
+{% endblock %}
